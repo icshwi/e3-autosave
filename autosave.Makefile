@@ -5,27 +5,19 @@ include ${REQUIRE_TOOLS}/driver.makefile
 # The following lines must be updated according to your autosave
 #
 #
-PCIAPP:= pciApp
+ASAPP:= asApp/src
 
-HEADERS += $(PCIAPP)/devLibPCI.h
-HEADERS += $(PCIAPP)/devLibPCIImpl.h
+HEADERS += $(ASAPP)/os/Linux/osdNfs.h
 
-SOURCES += $(wildcard $(PCIAPP)/devLib*.c)
-SOURCES += $(PCIAPP)/pcish.c
-SOURCES_Linux += $(PCIAPP)/os/Linux/devLibPCIOSD.c
+SOURCES += $(ASAPP)/dbrestore.c
+SOURCES += $(ASAPP)/save_restore.c
+SOURCES += $(ASAPP)/initHooks.c
+SOURCES += $(ASAPP)/fGetDateStr.c
+SOURCES += $(ASAPP)/configMenuSub.c
+SOURCES += $(ASAPP)/verify.c
+SOURCES += $(ASAPP)/os/Linux/osdNfs.c
 
-DBDS += $(PCIAPP)/epicspci.dbd
 
-
-VMEAPP:= vmeApp
-
-HEADERS += $(VMEAPP)/devcsr.h
-HEADERS += $(VMEAPP)/vmedefs.h
-
-SOURCES += $(VMEAPP)/devcsr.c
-SOURCES += $(VMEAPP)/iocreg.c
-SOURCES += $(VMEAPP)/vmesh.c
-SOURCES += $(VMEAPP)/devlib_compat.c
-
-DBDS += $(VMEAPP)/epicsvme.dbd
+#DBDS += $(ASAPP)/asInclude.dbd
+DBDS += $(ASAPP)/asSupport.dbd
 
