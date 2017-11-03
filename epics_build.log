@@ -1,0 +1,91 @@
+sudo -E bash -c "make -C autosave"
+make[1]: Entering directory '/home/jhlee/e3/tools/e3-autosave/autosave'
+make -C ./configure install 
+make[2]: Entering directory '/home/jhlee/e3/tools/e3-autosave/autosave/configure'
+perl -CSD /epics/bases/base-3.15.4/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../..
+mkdir O.Common
+make -C O.linux-x86_64 -f ../Makefile TOP=../.. \
+    T_A=linux-x86_64 install
+make[3]: Entering directory '/home/jhlee/e3/tools/e3-autosave/autosave/configure/O.linux-x86_64'
+perl -CSD /epics/bases/base-3.15.4/bin/linux-x86_64/convertRelease.pl checkRelease
+Installing config file /epics/bases/base-3.15.4/epics-modules/autosave/configure/RELEASE
+mkdir /epics/bases/base-3.15.4/epics-modules
+mkdir /epics/bases/base-3.15.4/epics-modules/autosave
+mkdir /epics/bases/base-3.15.4/epics-modules/autosave/configure
+make[3]: Leaving directory '/home/jhlee/e3/tools/e3-autosave/autosave/configure/O.linux-x86_64'
+make[2]: Leaving directory '/home/jhlee/e3/tools/e3-autosave/autosave/configure'
+make -C ./asApp install 
+make[2]: Entering directory '/home/jhlee/e3/tools/e3-autosave/autosave/asApp'
+make -C ./src install 
+make[3]: Entering directory '/home/jhlee/e3/tools/e3-autosave/autosave/asApp/src'
+perl -CSD /epics/bases/base-3.15.4/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../../..
+mkdir O.Common
+make -C O.linux-x86_64 -f ../Makefile TOP=../../.. \
+    T_A=linux-x86_64 install
+make[4]: Entering directory '/home/jhlee/e3/tools/e3-autosave/autosave/asApp/src/O.linux-x86_64'
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -MM -MF osdNfs.d  ../os/Linux/osdNfs.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -MM -MF verify.d  ../verify.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -MM -MF configMenuSub.d  ../configMenuSub.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -MM -MF fGetDateStr.d  ../fGetDateStr.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -MM -MF initHooks.d  ../initHooks.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -MM -MF save_restore.d  ../save_restore.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -MM -MF dbrestore.d  ../dbrestore.c
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -MM -MF asMain.d  ../asMain.cpp
+Expanding dbd file ../asInclude.dbd
+perl -CSD /epics/bases/base-3.15.4/bin/linux-x86_64/dbdExpand.pl   -I. -I.. -I../O.Common -I/epics/bases/base-3.15.4/epics-modules/autosave/dbd -I/epics/bases/base-3.15.4/dbd -o as.dbd ../asInclude.dbd
+perl -CSD /epics/bases/base-3.15.4/bin/linux-x86_64/registerRecordDeviceDriver.pl   -I. -I.. -I../O.Common -I/epics/bases/base-3.15.4/epics-modules/autosave/dbd -I/epics/bases/base-3.15.4/dbd    -o as_registerRecordDeviceDriver.cpp ../O.Common/as.dbd as_registerRecordDeviceDriver /epics/bases/base-3.15.4/epics-modules/autosave
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -MM -MF as_registerRecordDeviceDriver.d  as_registerRecordDeviceDriver.cpp
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -MM -MF asVerify.d  ../asVerify.c
+Installing created dbd file /epics/bases/base-3.15.4/epics-modules/autosave/dbd/as.dbd
+mkdir /epics/bases/base-3.15.4/epics-modules/autosave/dbd
+Installing dbd file /epics/bases/base-3.15.4/epics-modules/autosave/dbd/asSupport.dbd
+Installing OS dependent include file /epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux/osdNfs.h
+mkdir /epics/bases/base-3.15.4/epics-modules/autosave/include
+mkdir /epics/bases/base-3.15.4/epics-modules/autosave/include/os
+mkdir /epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -c ../dbrestore.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -c ../save_restore.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -c ../initHooks.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -c ../fGetDateStr.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -c ../configMenuSub.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -c ../verify.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -c ../os/Linux/osdNfs.c
+/usr/bin/ar -rc    libautosave.a        dbrestore.o save_restore.o initHooks.o fGetDateStr.o configMenuSub.o verify.o osdNfs.o 
+/usr/bin/ranlib libautosave.a
+/usr/bin/g++ -o libautosave.so -shared -fPIC -Wl,-hlibautosave.so -L/epics/bases/base-3.15.4/epics-modules/autosave/lib/linux-x86_64 -L/epics/bases/base-3.15.4/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.4/epics-modules/autosave/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.4/lib/linux-x86_64           -rdynamic -m64            dbrestore.o save_restore.o initHooks.o fGetDateStr.o configMenuSub.o verify.o osdNfs.o    -ldbRecStd -ldbCore -lca -lCom   -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing shared library /epics/bases/base-3.15.4/epics-modules/autosave/lib/linux-x86_64/libautosave.so
+mkdir /epics/bases/base-3.15.4/epics-modules/autosave/lib
+mkdir /epics/bases/base-3.15.4/epics-modules/autosave/lib/linux-x86_64
+Installing library /epics/bases/base-3.15.4/epics-modules/autosave/lib/linux-x86_64/libautosave.a
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -c ../asVerify.c
+/usr/bin/g++ -o asVerify  -L/epics/bases/base-3.15.4/epics-modules/autosave/lib/linux-x86_64 -L/epics/bases/base-3.15.4/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.4/epics-modules/autosave/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.4/lib/linux-x86_64           -rdynamic -m64            asVerify.o verify.o    -lca -lCom   
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -c as_registerRecordDeviceDriver.cpp
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I../os/Linux -I../os/default -I.. -I/epics/bases/base-3.15.4/epics-modules/autosave/include/compiler/gcc -I/epics/bases/base-3.15.4/epics-modules/autosave/include/os/Linux -I/epics/bases/base-3.15.4/epics-modules/autosave/include -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux -I/epics/bases/base-3.15.4/include        -c ../asMain.cpp
+/usr/bin/g++ -o asApp  -L/epics/bases/base-3.15.4/epics-modules/autosave/lib/linux-x86_64 -L/epics/bases/base-3.15.4/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.4/epics-modules/autosave/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.4/lib/linux-x86_64           -rdynamic -m64            as_registerRecordDeviceDriver.o asMain.o    -lautosave -ldbRecStd -ldbCore -lca -lCom   
+Installing created executable /epics/bases/base-3.15.4/epics-modules/autosave/bin/linux-x86_64/asVerify
+mkdir /epics/bases/base-3.15.4/epics-modules/autosave/bin
+mkdir /epics/bases/base-3.15.4/epics-modules/autosave/bin/linux-x86_64
+Installing created executable /epics/bases/base-3.15.4/epics-modules/autosave/bin/linux-x86_64/asApp
+make[4]: Leaving directory '/home/jhlee/e3/tools/e3-autosave/autosave/asApp/src/O.linux-x86_64'
+make[3]: Leaving directory '/home/jhlee/e3/tools/e3-autosave/autosave/asApp/src'
+make -C ./Db install 
+make[3]: Entering directory '/home/jhlee/e3/tools/e3-autosave/autosave/asApp/Db'
+perl -CSD /epics/bases/base-3.15.4/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../../..
+mkdir O.Common
+make -C O.linux-x86_64 -f ../Makefile TOP=../../.. \
+    T_A=linux-x86_64 install
+make[4]: Entering directory '/home/jhlee/e3/tools/e3-autosave/autosave/asApp/Db/O.linux-x86_64'
+Installing /epics/bases/base-3.15.4/epics-modules/autosave/db/save_restoreStatus.db
+mkdir /epics/bases/base-3.15.4/epics-modules/autosave/db
+Installing /epics/bases/base-3.15.4/epics-modules/autosave/db/configMenu.db
+make[4]: Leaving directory '/home/jhlee/e3/tools/e3-autosave/autosave/asApp/Db/O.linux-x86_64'
+make[3]: Leaving directory '/home/jhlee/e3/tools/e3-autosave/autosave/asApp/Db'
+make[2]: Leaving directory '/home/jhlee/e3/tools/e3-autosave/autosave/asApp'
+make -C ./iocBoot install 
+make[2]: Entering directory '/home/jhlee/e3/tools/e3-autosave/autosave/iocBoot'
+make -C ./iocas install 
+make[3]: Entering directory '/home/jhlee/e3/tools/e3-autosave/autosave/iocBoot/iocas'
+make[3]: Nothing to be done for 'install'.
+make[3]: Leaving directory '/home/jhlee/e3/tools/e3-autosave/autosave/iocBoot/iocas'
+make[2]: Leaving directory '/home/jhlee/e3/tools/e3-autosave/autosave/iocBoot'
+make[1]: Leaving directory '/home/jhlee/e3/tools/e3-autosave/autosave'
