@@ -1,10 +1,10 @@
 include ${REQUIRE_TOOLS}/driver.makefile
 
-#
-#
-# The following lines must be updated according to your autosave
-#
-#
+USR_CFLAGS   += -Wno-unused-variable
+USR_CFLAGS   += -Wno-unused-function
+USR_CPPFLAGS += -Wno-unused-variable
+USR_CPPFLAGS += -Wno-unused-function
+
 ASAPP:= asApp/src
 
 HEADERS += $(ASAPP)/os/Linux/osdNfs.h
@@ -18,6 +18,5 @@ SOURCES += $(ASAPP)/verify.c
 SOURCES += $(ASAPP)/os/Linux/osdNfs.c
 
 
-#DBDS += $(ASAPP)/asInclude.dbd
-DBDS += $(ASAPP)/asSupport.dbd
+DBDS    += $(ASAPP)/asSupport.dbd
 

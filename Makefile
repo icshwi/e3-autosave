@@ -14,10 +14,10 @@
 #  You should have received a copy of the GNU General Public License along with
 #  this program. If not, see https://www.gnu.org/licenses/gpl-2.0.txt
 #
-# Author  : 
-# email   : 
-# Date    : 
-# version : 0.0.0
+# Author  : Jeong Han Lee
+# email   : han.lee@esss.se
+# Date    : Friday, November  3 11:03:30 CET 2017
+# version : 0.0.1
 #
 
 
@@ -26,6 +26,7 @@ TOP:=$(CURDIR)
 include $(TOP)/configure/CONFIG
 
 -include $(TOP)/$(E3_ENV_NAME)/$(E3_ENV_NAME)
+-include $(TOP)/$(E3_ENV_NAME)/epics-community-env
 
 
 # Keep always the module up-to-date
@@ -158,7 +159,18 @@ conf:
 	$(QUIET) install -m 644 $(TOP)/$(ESS_MODULE_MAKEFILE)  $(EPICS_MODULE_SRC_PATH)/
 
 
-.PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_NAME) git-submodule-sync init help help2 build clean install uninstall conf rebuild
+
+epics:
+#	sudo -E ' $(MAKE) -C $(EPICS_MODULE_SRC_PATH) clean'
+	@echo "EPICS_BASE=$(COMMUNITY_EPICS_BASE)"  > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE
+	@echo "INSTALL_LOCATION=$(M_AUTOSAVE)"      > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/CONFIG_SITE	
+	sudo -E bash -c "$(MAKE) -C $(EPICS_MODULE_SRC_PATH)"
+
+epics-clean:
+	sudo -E bash -c "$(MAKE) -C $(EPICS_MODULE_SRC_PATH) clean"
+
+
+.PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_NAME) git-submodule-sync init help help2 build clean install uninstall conf rebuild epics epics-clean
 
 
 
