@@ -5,18 +5,22 @@ USR_CFLAGS   += -Wno-unused-function
 USR_CPPFLAGS += -Wno-unused-variable
 USR_CPPFLAGS += -Wno-unused-function
 
-ASAPP:= asApp/src
+ASAPP:=asApp
 
-HEADERS += $(ASAPP)/os/Linux/osdNfs.h
+ASAAPDB:= $(ASAPP)/Db
+ASAPPSRC:= $(ASAPP)/src
 
-SOURCES += $(ASAPP)/dbrestore.c
-SOURCES += $(ASAPP)/save_restore.c
-SOURCES += $(ASAPP)/initHooks.c
-SOURCES += $(ASAPP)/fGetDateStr.c
-SOURCES += $(ASAPP)/configMenuSub.c
-SOURCES += $(ASAPP)/verify.c
-SOURCES += $(ASAPP)/os/Linux/osdNfs.c
+HEADERS += $(ASAPPSRC)/os/Linux/osdNfs.h
+
+SOURCES += $(ASAPPSRC)/dbrestore.c
+SOURCES += $(ASAPPSRC)/save_restore.c
+SOURCES += $(ASAPPSRC)/initHooks.c
+SOURCES += $(ASAPPSRC)/fGetDateStr.c
+SOURCES += $(ASAPPSRC)/configMenuSub.c
+SOURCES += $(ASAPPSRC)/verify.c
+SOURCES += $(ASAPPSRC)/os/Linux/osdNfs.c
+
+DBDS    += $(ASAPPSRC)/asSupport.dbd
 
 
-DBDS    += $(ASAPP)/asSupport.dbd
-
+TEMPLATES += $(wildcard $(ASAAPDB)/*.db)
