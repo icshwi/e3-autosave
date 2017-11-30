@@ -112,15 +112,18 @@ help2:
 
 #
 ## Initialize EPICS BASE and E3 ENVIRONMENT Module
-init: git-submodule-sync $(EPICS_MODULE_NAME) $(E3_ENV_NAME)
+init: git-submodule-sync $(EPICS_MODULE_SRC_PATH) $(E3_ENV_NAME)
 
 git-submodule-sync:
 	$(QUIET) git submodule sync
 
 
-$(EPICS_MODULE_NAME): 
+$(EPICS_MODULE_SRC_PATH): 
 	$(QUIET) $(git_update)
 	cd $@ && git checkout $(EPICS_MODULE_TAG)
+
+checkout: 
+	cd $(EPICS_MODULE_SRC_PATH) && git checkout $(EPICS_MODULE_TAG)
 
 
 $(E3_ENV_NAME): 
@@ -170,7 +173,7 @@ epics-clean:
 	sudo -E bash -c "$(MAKE) -C $(EPICS_MODULE_SRC_PATH) clean"
 
 
-.PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_NAME) git-submodule-sync init help help2 build clean install uninstall conf rebuild epics epics-clean
+.PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_SRC_PATH) git-submodule-sync init help help2 build clean install uninstall conf rebuild epics epics-clean checkout
 
 
 
