@@ -53,8 +53,9 @@ SOURCES += $(ASAPPSRC)/save_restore.c
 SOURCES += $(ASAPPSRC)/initHooks.c
 SOURCES += $(ASAPPSRC)/fGetDateStr.c
 SOURCES += $(ASAPPSRC)/configMenuSub.c
-SOURCES += $(ASAPPSRC)/verify.c
 SOURCES += $(ASAPPSRC)/os/Linux/osdNfs.c
+SOURCES += $(ASAPPSRC)/verify.c
+
 
 DBDS    += $(ASAPPSRC)/asSupport.dbd
 
@@ -62,6 +63,34 @@ DBDS    += $(ASAPPSRC)/asSupport.dbd
 TEMPLATES += $(ASAAPDB)/save_restoreStatus.db
 TEMPLATES += $(ASAAPDB)/configMenu.db
 
+
+TEMP_PATH    :=$(where_am_I)O.$(EPICSVERSION)_$(T_A)
+ASVERIFY     :=$(TEMP_PATH)/bin/asVerify
+
+BINS += $(ASVERIFY)
+
+
+vpath %.c   $(where_am_I)$(ASAPPSRC)
+vpath %.h   $(where_am_I)$(ASAPPSRC)
+
+
+verify$(DEP): $(ASVERIFY)
+	@echo  $(ASVERIFY)
+
+
+# We only use linux, so I added $(OP_SYS_LDFLAGS) $(ARCH_DEP_LDFLAGS)
+# Fortunately, libautosave.so isn't used to compile asVerify, so we ignore its flags
+$(ASVERIFY): asVerify.c $(patsubst %.c,%.o, asVerify.c verify.c )
+	@echo ""
+	@echo ">>>>> asVerify Init "
+	$(RM) $@
+	$(MKDIR) -p $(TEMP_PATH)/bin
+	$(CCC) -o $@ -L$(EPICS_BASE_LIB) -Wl,-rpath,$(EPICS_BASE_LIB) $(OP_SYS_LDFLAGS) $(ARCH_DEP_LDFLAGS)  $(filter %.o, $^) -lca -lCom 
+	@echo "<<<<< asVerify Done"
+	@echo ""
+
+
 # db rule is the default in RULES_E3, so add the empty one
+
 
 db:
