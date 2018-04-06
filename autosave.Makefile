@@ -27,7 +27,7 @@
 where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 
-include ${REQUIRE_TOOLS}/driver.makefile
+include ${E3_REQUIRE_TOOLS}/driver.makefile
 
 # To enable autosaveBuild, use dbLoadRecordsHookRegister.  (But it doesn't
 # appear in EPICS base until 3.14.12.5, so disable by default for now.)
@@ -61,3 +61,7 @@ DBDS    += $(ASAPPSRC)/asSupport.dbd
 
 TEMPLATES += $(ASAAPDB)/save_restoreStatus.db
 TEMPLATES += $(ASAAPDB)/configMenu.db
+
+# db rule is the default in RULES_E3, so add the empty one
+
+db:
