@@ -1,0 +1,62 @@
+# ### AUTOSAVE iocsh  ###
+#- ###################################################
+#- IOCNAME          - AUTOSAVE IOCNAME (Not :, string)
+#- AS_TOP         - Autosave TOP path
+#- ###################################################
+#-
+#- INCOMPLETE     - Optional: Ok to save/restore save sets with missing values?
+#-                  Default: 1
+
+#- CA_RECONNECT   - Optional: Retry connecting to PVs whose initial connection attempt failed?
+#-                  Default: 1
+#- DATED_BACKUP   - Optional: Save dated backup files?
+#-                  Default: 1
+#-
+#- CA_RECONNECT   - Optional: Retry connecting to PVs whose initial connection attempt failed?
+#-                  Default: 1
+#-
+#- NUM_SEQ        - Optional: Number of sequenced backup files to write
+#-                  Default: 3
+#-
+#- SEQ_PERIOD     - Optional: Time interval in seconds between sequenced backups
+#-                - Default: 300
+
+epicsEnvSet(PREFIX,         "$(IOCNAME)-as:")
+epicsEnvSet(PREFIX_AS_PATH, "$(AS_TOP)/$(IOCNAME)")
+
+set_savefile_path    ("$(PREFIX_AS_PATH)", "/save")
+set_requestfile_path ("$(PREFIX_AS_PATH)", "/req")
+
+system("install -d $(PREFIX_AS_PATH)/save")
+system("install -d $(PREFIX_AS_PATH)/req")
+
+
+save_restoreSet_Debug(0)
+
+save_restoreSet_status_prefix("$(PREFIX)")
+
+
+save_restoreSet_CAReconnect($(CA_RECONNECT=1))
+save_restoreSet_IncompleteSetsOk($(INCOMPLETE=1))
+save_restoreSet_DatedBackupFiles($(DATED_BACKUP=1))
+save_restoreSet_NumSeqFiles($(NUM_SEQ=3))
+save_restoreSet_SeqPeriodInSeconds($(SEQ_PERIOD=300))
+
+
+set_pass0_restoreFile("values.sav")
+set_pass0_restoreFile("settings.sav")
+set_pass1_restoreFile("values.sav")
+
+
+# Is PREFIX enough? We may need AAA
+dbLoadRecords("save_restoreStatus.db", "P=$(PREFIX), DEAD_SECONDS=5")
+
+
+
+# require has afterInit function
+afterInit("makeAutosaveFileFromDbInfo("$(PREFIX_AS_PATH)/req/settings.req", "autosaveFields_pass0")")
+afterInit("makeAutosaveFileFromDbInfo("$(PREFIX_AS_PATH)/req/values.req",   "autosaveFields")")
+afterInit("create_monitor_set("settings.req", 5, "P=$(PREFIX)")")
+afterInit("create_monitor_set("values.req",   5, "P=$(PREFIX)")")
+
+

@@ -74,9 +74,10 @@ ASVERIFY     :=$(TEMP_PATH)/bin/asVerify
 BINS += $(ASVERIFY)
 
 # e3-autosave/iocsh
-SCRIPTS += $(wildcard ../iocsh/*.iocsh)
+SCRIPTS += ../iocsh/autosave.iocsh
+#SCRIPTS += $(wildcard ../iocsh/*.iocsh)
 # e3-autosave/autosave/iocsh
-SCRIPTS += $(wildcard iocsh/*.iocsh)
+#SCRIPTS += $(wildcard iocsh/*.iocsh)
 
 
 vpath %.c   $(where_am_I)$(ASAPPSRC)
