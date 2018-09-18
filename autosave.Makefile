@@ -16,19 +16,21 @@
 #
 # Author  : Jeong Han Lee
 # email   : han.lee@esss.se
-# Date    : Friday, April  6 13:24:53 CEST 2018
-# version : 0.0.1
+# Date    : Tuesday, September 18 09:39:32 CEST 2018
+# version : 0.0.2
 
 # Get where_am_I before include driver.makefile.
 # After driver.makefile, where_am_I is the epics base,
 # so we cannot use it
 
+# LEGACY_RSET should be defined before driver.makefile
+# require-ess from 3.0.1
+LEGACY_RSET = YES
+
 
 where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
-
 include ${E3_REQUIRE_TOOLS}/driver.makefile
 include $(where_am_I)/../configure/DECOUPLE_FLAGS
-
 
 
 # To enable autosaveBuild, use dbLoadRecordsHookRegister.  (But it doesn't
