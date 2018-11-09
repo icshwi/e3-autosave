@@ -30,7 +30,7 @@ LEGACY_RSET = YES
 
 where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 include ${E3_REQUIRE_TOOLS}/driver.makefile
-include $(where_am_I)/../configure/DECOUPLE_FLAGS
+include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 
 
 # To enable autosaveBuild, use dbLoadRecordsHookRegister.  (But it doesn't
@@ -102,5 +102,9 @@ $(ASVERIFY): asVerify.c $(patsubst %.c,%.o, asVerify.c verify.c )
 
 # db rule is the default in RULES_E3, so add the empty one
 
-
+.PHONY: db
 db:
+#
+.PHONY: vlibs
+vlibs:
+#
