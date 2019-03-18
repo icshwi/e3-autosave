@@ -1,0 +1,97 @@
+record(ao, "$(P)SR_ao")
+{
+    field(DTYP,"Soft Channel")
+    info(autosaveFields, "PREC SCAN DESC OUT")
+    info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "$(P)SR_aoDISP")
+{
+    field(DTYP,"Soft Channel")
+    info(autosaveFields, "DISP")
+}
+
+record(ao, "$(P)SR_longout")
+{
+    field(DTYP,"Soft Channel")
+}
+
+record(bo, "$(P)SR_bo")
+{
+    field(DTYP,"Soft Channel")
+    info(autosaveFields, "IVOV")
+}
+
+record(bi, "$(P)SR_bi")
+{
+    field(DTYP,"Soft Channel")
+    info(autosaveField_pass0, "SVAL")
+}
+
+record(scaler, "$(P)SR_scaler")
+{
+}
+
+# arrays
+record(waveform, "$(P)SR_char_array")
+{
+    field(NELM, "$(N)")
+    field(FTVL, "CHAR")
+    info(autosaveFields_pass1, "VAL")
+}
+
+record(waveform, "$(P)SR_double_array")
+{
+    field(NELM, "$(N)")
+    field(FTVL, "DOUBLE")
+    info(autosaveFields_pass1, "VAL")
+}
+
+record(waveform, "$(P)SR_float_array")
+{
+    field(NELM, "$(N)")
+    field(FTVL, "FLOAT")
+    info(autosaveFields_pass1, "VAL")
+}
+
+record(waveform, "$(P)SR_long_array")
+{
+    field(NELM, "$(N)")
+    field(FTVL, "LONG")
+    info(autosaveFields_pass1, "VAL")   
+}
+
+record(waveform, "$(P)SR_short_array")
+{
+    field(NELM, "$(N)")
+    field(FTVL, "SHORT")
+    info(autosaveFields_pass1, "VAL")   
+}
+
+record(waveform, "$(P)SR_string_array")
+{
+    field(NELM, "$(N)")
+    field(FTVL, "STRING")
+    info(autosaveFields_pass1, "VAL")   
+}
+
+record(waveform, "$(P)SR_uchar_array")
+{
+    field(NELM, "$(N)")
+    field(FTVL, "UCHAR")
+    info(autosaveFields_pass1, "VAL")   
+}
+
+record(waveform, "$(P)SR_ulong_array")
+{
+    field(NELM, "$(N)")
+    field(FTVL, "ULONG")
+    info(autosaveFields_pass1, "VAL")   
+}
+
+record(waveform, "$(P)SR_ushort_array")
+{
+    field(NELM, "$(N)")
+    field(FTVL, "USHORT")
+    info(autosaveFields_pass1, "VAL")   
+}

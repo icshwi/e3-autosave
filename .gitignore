@@ -8,3 +8,6 @@
 .cvsignore
 *_old/
 .\#*
+*.list
+ioc_test/
+
