@@ -14,7 +14,8 @@ epicsEnvSet("IOCNAME", "ioc_test")
 
 
 #iocshLoad("$(iocStats_DIR)/iocStats.iocsh", "IOCNAME=$(IOCNAME)")
-iocshLoad("$(autosave_DIR)/autosave.iocsh", "AS_TOP=$(TOP),IOCNAME=$(IOCNAME)")
+#iocshLoad("$(autosave_DIR)/autosave.iocsh", "AS_TOP=$(TOP),IOCNAME=$(IOCNAME)")
+iocshLoad("$(TOP)/iocsh/autosave.iocsh", "AS_TOP=$(TOP),IOCNAME=$(IOCNAME)")
 
 dbLoadRecords("$(TOP)/template/SR_test_info.db","P=$(IOCNAME):,N=12")
 

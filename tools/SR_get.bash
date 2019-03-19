@@ -5,7 +5,6 @@ caget ${P}SR_ao.PREC
 caget ${P}SR_bo.IVOV
 caget ${P}SR_ao.SCAN
 caget ${P}SR_ao.VAL
-caget ${P}SR_scaler.RATE
 caget ${P}SR_ao.DESC
 caget ${P}SR_ao.OUT
 caget ${P}SR_longout

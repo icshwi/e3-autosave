@@ -5,10 +5,9 @@ caput ${P}SR_ao.PREC 3
 caput ${P}SR_bo.IVOV 3
 caput ${P}SR_ao.SCAN 3
 caput ${P}SR_ao.VAL 3.1
-caput ${P}SR_scaler.RATE 3.1
 caput ${P}SR_ao.DESC desc
 caput ${P}SR_ao.OUT "abc:rec PP"
-caput ${P}SR_longout 3
+caput ${P}SR_longout 6
 caput ${P}SR_bi.SVAL 3
 caput -S ${P}SR_char_array "abc"
 caput -a ${P}SR_double_array 3 1 2 3

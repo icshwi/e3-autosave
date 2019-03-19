@@ -3,6 +3,7 @@ record(ao, "$(P)SR_ao")
     field(DTYP,"Soft Channel")
     info(autosaveFields, "PREC SCAN DESC OUT")
     info(autosaveFields_pass0, "VAL")
+    
 }
 
 record(ao, "$(P)SR_aoDISP")
@@ -14,6 +15,7 @@ record(ao, "$(P)SR_aoDISP")
 record(ao, "$(P)SR_longout")
 {
     field(DTYP,"Soft Channel")
+    info(autosaveFields_pass1, "VAL")
 }
 
 record(bo, "$(P)SR_bo")
@@ -25,11 +27,7 @@ record(bo, "$(P)SR_bo")
 record(bi, "$(P)SR_bi")
 {
     field(DTYP,"Soft Channel")
-    info(autosaveField_pass0, "SVAL")
-}
-
-record(scaler, "$(P)SR_scaler")
-{
+    info(autosaveFields_pass0, "SVAL")
 }
 
 # arrays

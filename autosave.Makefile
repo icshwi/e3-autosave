@@ -1,5 +1,6 @@
 #
-#  Copyright (c) 2017 - Present  Jeong Han Lee
+#  Copyright (c) 2017 - 2018   Jeong Han Lee
+#  Copyright (c) 2019          European Spallation Source ERIC
 #
 #  The program is free software: you can redistribute
 #  it and/or modify it under the terms of the GNU General Public License
@@ -16,8 +17,8 @@
 #
 # Author  : Jeong Han Lee
 # email   : han.lee@esss.se
-# Date    : Tuesday, September 18 09:39:32 CEST 2018
-# version : 0.0.2
+# Date    : Tuesday, March 19 11:08:51 CET 2019
+# version : 0.0.3
 
 # Get where_am_I before include driver.makefile.
 # After driver.makefile, where_am_I is the epics base,
@@ -37,8 +38,7 @@ include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 # appear in EPICS base until 3.14.12.5, so disable by default for now.)
 # ESS uses the more than 3.14.12.5, so we enable them by default
 
-USR_CFLAGS += -DDBLOADRECORDSHOOKREGISTER
-
+USR_CFLAGS   += -DDBLOADRECORDSHOOKREGISTER
 
 USR_CFLAGS   += -Wno-unused-variable
 USR_CFLAGS   += -Wno-unused-function
@@ -60,24 +60,21 @@ SOURCES += $(ASAPPSRC)/configMenuSub.c
 SOURCES += $(ASAPPSRC)/os/Linux/osdNfs.c
 SOURCES += $(ASAPPSRC)/verify.c
 
-
 DBDS    += $(ASAPPSRC)/asSupport.dbd
 
+SCRIPTS += $(wildcard ../iocsh/*.iocsh)
 
 TEMPLATES += $(ASAAPDB)/save_restoreStatus.db
 TEMPLATES += $(ASAAPDB)/configMenu.db
 
 
-TEMP_PATH    :=$(where_am_I)O.$(EPICSVERSION)_$(T_A)
-ASVERIFY     :=$(TEMP_PATH)/bin/asVerify
+## asVerify will be installed in both $PROD_BIN_PATH and $EPICS_BASE/bin/$(T_A)
+## with suffix $(E3_MODULE_VERSION)
+##
+TEMP_PATH :=$(where_am_I)O.$(EPICSVERSION)_$(T_A)
+ASVERIFY  :=$(TEMP_PATH)/bin/asVerify_$(E3_MODULE_VERSION)
 
 BINS += $(ASVERIFY)
-
-# e3-autosave/iocsh
-SCRIPTS += ../iocsh/autosave.iocsh
-#SCRIPTS += $(wildcard ../iocsh/*.iocsh)
-# e3-autosave/autosave/iocsh
-#SCRIPTS += $(wildcard iocsh/*.iocsh)
 
 
 vpath %.c   $(where_am_I)$(ASAPPSRC)
@@ -85,7 +82,8 @@ vpath %.h   $(where_am_I)$(ASAPPSRC)
 
 
 verify$(DEP): $(ASVERIFY)
-	@echo  $(ASVERIFY)
+	@echo  $^
+	install -m 755 $^  $(EPICS_BASE)/bin/$(T_A)/
 
 
 # We only use linux, so I added $(OP_SYS_LDFLAGS) $(ARCH_DEP_LDFLAGS)
@@ -100,7 +98,6 @@ $(ASVERIFY): asVerify.c $(patsubst %.c,%.o, asVerify.c verify.c )
 	@echo ""
 
 
-# db rule is the default in RULES_E3, so add the empty one
 
 .PHONY: db
 db:
@@ -108,3 +105,4 @@ db:
 .PHONY: vlibs
 vlibs:
 #
+
