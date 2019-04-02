@@ -1,5 +1,5 @@
 #!/bin/bash
-P=$1
+P="ioc_test:"
 caget ${P}SR_aoDISP.DISP
 caget ${P}SR_ao.PREC
 caget ${P}SR_bo.IVOV
