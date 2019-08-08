@@ -7,7 +7,7 @@ We try to enclose most possible autosave configuration within `autosave.iocsh`.
 
 ## Preparation of DB
 
-Each record in database files should have the one of following `info` tag. Such as
+Each record in database file that needs to have values saved by `autosave` must have the one of following `info` tags. Such as
 ```
  info(autosaveFields, "PREC SCAN DESC OUT")
  info(autosaveFields_pass0, "VAL")
@@ -29,7 +29,7 @@ Each info tag should be matched with what one would like to use such as
   - `values_pass1.sav`    : in `$(AS_TOP)/$(IOCNAME)/save`
   - `values_pass1.req`    : in `$(AS_TOP)/$(IOCNAME)/req`
 
-Please loot at the example in [Autosave DB example](template/SR_test_info.db).
+Please look at the example in [Autosave DB example](template/SR_test_info.db).
 
 ## How to enable it within e3
 
