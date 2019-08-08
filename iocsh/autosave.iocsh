@@ -16,11 +16,13 @@
 #-                   Default: 3
 #- SEQ_PERIOD      - Optional: Time interval in seconds between sequenced backups
 #-                 - Default: 300
-#- VALUES_FILES    - Optional: Filename, Default: values
+#- VALUES_FILES_PASS0    - Optional: Filename, Default: values_pass0
+#- VALUES_FILES_PASS1    - Optional: Filename, Default: values_pass1
 #- SETTINGS_FILES  - Optional: Filename, Default : settings
 #- WAVEFORM_FILES  - Optional: Filename, Default : waveform
-#- VALUES_PERIOD   - Optional, Default 5
-#- SETTING_PERIOD  - Optional, Default 5
+#- VALUES_PERIOD_PASS0   - Optional, Default 5
+#- VALUES_PERIOD_PASS1   - Optional, Default 10
+#- SETTINGS_PERIOD  - Optional, Default 5
 #- WAVEFORM_PERIOD - Optional, Default 30
 #-
 set_savefile_path    ("$(AS_TOP)/$(IOCNAME)", "/save")
@@ -54,21 +56,20 @@ save_restoreSet_CallbackTimeout(-1)
 dbLoadRecords("save_restoreStatus.db", "P=$(IOCNAME)-as:, DEAD_SECONDS=5")
 #- 
 #- pass0 : save files are to be restored before record initialization
-set_pass0_restoreFile("$(SETTINGS_FILES_PASS0=settings_pass0).sav")
+set_pass0_restoreFile("$(SETTINGS_FILES=settings).sav")
 set_pass0_restoreFile("$(VALUES_FILES_PASS0=values_pass0).sav")
 
 #- pass1 : save files are to be restored after record initialization
+set_pass1_restoreFile("$(SETTINGS_FILES=settings).sav")
 set_pass1_restoreFile("$(VALUES_FILES_PASS1=values_pass1).sav")
-#- Do we need the settings in pass1?
-#- set_pass1_restoreFile("$(SETTINGS_FILES=settings).sav")
 #-
 #- Note afterInit supplied by require
-afterInit("makeAutosaveFileFromDbInfo('$(AS_TOP)/$(IOCNAME)/req/$(SETTINGS_FILES_PASS0=settings_pass0).req','autosaveFields')")
+afterInit("makeAutosaveFileFromDbInfo('$(AS_TOP)/$(IOCNAME)/req/$(SETTINGS_FILES=settings).req','autosaveFields')")
 afterInit("makeAutosaveFileFromDbInfo('$(AS_TOP)/$(IOCNAME)/req/$(VALUES_FILES_PASS0=values_pass0).req','autosaveFields_pass0')")
 afterInit("makeAutosaveFileFromDbInfo('$(AS_TOP)/$(IOCNAME)/req/$(VALUES_FILES_PASS1=values_pass1).req','autosaveFields_pass1')")
 #-
 #- Note afterInit supplied by require
-afterInit("create_monitor_set('$(SETTINGS_FILES_PASS0=settings_pass0).req',$(SETTING_PERIOD=5),'PREFIX=$(IOCNAME)-as:')")
+afterInit("create_monitor_set('$(SETTINGS_FILES=settings).req',$(SETTINGS_PERIOD=5),'PREFIX=$(IOCNAME)-as:')")
 afterInit("create_monitor_set('$(VALUES_FILES_PASS0=values_pass0).req',$(VALUES_PASS0_PERIOD=5),'PREFIX=$(IOCNAME)-as:')")
 afterInit("create_monitor_set('$(VALUES_FILES_PASS1=values_pass1).req',$(VALUES_PASS1_PERIOD=10),'PREFIX=$(IOCNAME)-as:')")
 
