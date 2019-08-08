@@ -17,15 +17,15 @@ Each record in database file that needs to have values saved by `autosave` must 
 Each info tag should be matched with what one would like to use such as
 
 
-* `autosaveFields` : before record initialization
-  - `settings_pass0.sav` : in `$(AS_TOP)/$(IOCNAME)/save`
-  - `settings_pass0.req` : in `$(AS_TOP)/$(IOCNAME)/req`
+* `autosaveFields` : before and after record initialization
+  - `settings.sav` : in `$(AS_TOP)/$(IOCNAME)/save`
+  - `settings.req` : in `$(AS_TOP)/$(IOCNAME)/req`
  
 * `autosaveFields_pass0` : before record initialization
   - `values_pass0.sav` : in `$(AS_TOP)/$(IOCNAME)/save`
   - `values_pass0.req` : in `$(AS_TOP)/$(IOCNAME)/req`
 
-* `autosaveFields_pass1`: after record initialization.
+* `autosaveFields_pass1`: after record initialization (Most autosave values can be restored at Pass 0 and Pass 1 using the `autosaveFields` info tag.)
   - `values_pass1.sav`    : in `$(AS_TOP)/$(IOCNAME)/save`
   - `values_pass1.req`    : in `$(AS_TOP)/$(IOCNAME)/req`
 
