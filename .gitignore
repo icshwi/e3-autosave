@@ -10,4 +10,6 @@
 .\#*
 *.list
 ioc_test/
+*.gv
+*.png
 

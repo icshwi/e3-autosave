@@ -51,3 +51,11 @@ asVerify is avaiable in `${EPICS_BASE}/bin/${EPICS_HOST_ARCH}/asVerify_VERSION`.
 ## req files
 
 The req files can be used, however, one should copy all req files into `db` folder, by `TEMPLATE` variable. Please see `autosave.Makefile`. 
+
+
+## Dependency Plot
+
+
+|![autosave dep](docs/autosave.png)|
+| :---: |
+|**Figure 1** autosave Depdendency Tree. |
