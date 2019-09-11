@@ -1,4 +1,4 @@
 [submodule "autosave"]
 	path = autosave
 	url = https://github.com/epics-modules/autosave
-	ignore = all
+	ignore = dirty
