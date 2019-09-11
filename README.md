@@ -35,10 +35,19 @@ Please look at the example in [Autosave DB example](template/SR_test_info.db).
 
 
 ```
-require autosave,5.9.0
+require autosave,5.10.0
 
 epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
 epicsEnvSet("IOCNAME", "as_test")
 
 iocshLoad("$(autosave_DIR)/autosave.iocsh", "AS_TOP=$(TOP),IOCNAME=$(IOCNAME)")
 ```
+
+## asVerify
+
+asVerify is avaiable in `${EPICS_BASE}/bin/${EPICS_HOST_ARCH}/asVerify_VERSION`. Once e3 environment is sourced, it can be executable in that terminal. Please see its usage at https://epics.anl.gov/bcda/synApps/autosave/autoSaveRestore_R5-5.html#asVerify
+
+
+## req files
+
+The req files can be used, however, one should copy all req files into `db` folder, by `TEMPLATE` variable. Please see `autosave.Makefile`. 
