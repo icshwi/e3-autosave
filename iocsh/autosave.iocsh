@@ -1,13 +1,14 @@
-#- ###                         AUTOSAVE iocsh                                ###
-#- #############################################################################
-#- IOCNAME        - AUTOSAVE IOCNAME (IOCNAME should not have :)
-#- AS_TOP         - Autosave TOP path
-#- #############################################################################
+##############################################################################
+####                         AUTOSAVE iocsh                                ###
+##############################################################################
+#-IOCNAME        - AUTOSAVE IOCNAME (IOCNAME should not have :)
+#-AS_TOP         - Autosave TOP path
+#-#############################################################################
 #-
 #- INCOMPLETE      - Optional: Ok to save/restore save sets with missing values?
 #-                   Default: 1
 #- CA_RECONNECT    - Optional: Retry connecting to PVs whose initial connection
-#                              attempt failed?,  Default: 1
+#-                             attempt failed?,  Default: 1
 #- DATED_BACKUP    - Optional: Save dated backup files?
 #-                   Default: 1
 #- CA_RECONNECT    - Optional: Retry connecting to PVs whose initial connection
@@ -53,6 +54,7 @@ save_restoreSet_NumSeqFiles($(NUM_SEQ=3))
 save_restoreSet_SeqPeriodInSeconds($(SEQ_PERIOD=300))
 #-
 #- should periodically retry connecting to PVs whose initial connection attempt failed
+#-
 save_restoreSet_CAReconnect($(CA_RECONNECT=1))
 
 #-
