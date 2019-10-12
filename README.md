@@ -48,9 +48,12 @@ iocshLoad("$(autosave_DIR)/autosave.iocsh", "AS_TOP=$(TOP),IOCNAME=$(IOCNAME)")
 asVerify is avaiable in `${EPICS_BASE}/bin/${EPICS_HOST_ARCH}/asVerify_VERSION`. Once e3 environment is sourced, it can be executable in that terminal. Please see its usage at https://epics.anl.gov/bcda/synApps/autosave/autoSaveRestore_R5-5.html#asVerify
 
 
-## req files
+## request (req) files
 
 The req files can be used, however, one should copy all req files into `db` folder, by `TEMPLATE` variable. Please see `autosave.Makefile`. 
+[How to use existent req files](README_REQUEST.md)
+
+
 
 
 ## Dependency Plot
