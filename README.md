@@ -50,7 +50,7 @@ asVerify is avaiable in `${EPICS_BASE}/bin/${EPICS_HOST_ARCH}/asVerify_VERSION`.
 
 ## request (req) files
 
-The req files can be used, however, one should copy all req files into `db` folder, by `TEMPLATE` variable. In order to integrate an IOC, please check [README : How to use existent req files](README_REQUEST.md)
+The req files can be used, however, one should copy all req files into `db` folder, by `TEMPLATE` variable. In order to integrate an IOC, please check [README : How to use existent req files](README_REQUEST.md). However, it is highly recommended **NOT** to use this method if possible. 
 
 
 
