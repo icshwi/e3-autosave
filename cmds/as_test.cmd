@@ -1,6 +1,6 @@
 require iocStats,3.1.16
 require autosave,5.10.0
-require std,3.5.0
+#require std,3.6.1
 
 epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
 
